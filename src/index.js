@@ -3,7 +3,7 @@
  * @Author       : liulib
  * @Date         : 2020-10-26 09:37:01
  * @LastEditors  : liulib
- * @LastEditTime : 2020-10-26 15:07:05
+ * @LastEditTime : 2020-10-26 17:30:34
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -18,4 +18,4 @@ const Apps = (
     </Provider>
 )
 
-ReactDOM.render(<Apps />, document.getElementById('root'))
+ReactDOM.render(Apps, document.getElementById('root'))

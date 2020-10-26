@@ -3,16 +3,24 @@
  * @Author       : liulib
  * @Date         : 2020-10-26 09:37:01
  * @LastEditors  : liulib
- * @LastEditTime : 2020-10-26 09:47:10
+ * @LastEditTime : 2020-10-26 10:21:29
  */
 import React, { Fragment } from 'react'
+import Login from './pages/login'
+import Home from './pages/home'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 function App() {
     return (
         <Fragment>
-            <div className="App">
-                <h1>This is React App.</h1>
-            </div>
+            <BrowserRouter>
+                <Switch>
+                    <Route path="/login" component={Login} />
+                    <Route path="/home" component={Home} />
+                    <Route exact path="/" component={Home} />
+                    <Redirect to={'/home'} />
+                </Switch>
+            </BrowserRouter>
         </Fragment>
     )
 }

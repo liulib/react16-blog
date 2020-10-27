@@ -3,24 +3,17 @@
  * @Author       : liulib
  * @Date         : 2020-10-26 09:37:01
  * @LastEditors  : liulib
- * @LastEditTime : 2020-10-26 10:21:29
+ * @LastEditTime : 2020-10-27 11:03:12
  */
 import React, { Fragment } from 'react'
-import Login from './pages/login'
-import Home from './pages/home'
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-
+import { BrowserRouter } from 'react-router-dom'
+import { renderRoutes } from 'react-router-config'
+// 导入路由
+import routes from './routes'
 function App() {
     return (
         <Fragment>
-            <BrowserRouter>
-                <Switch>
-                    <Route path="/login" component={Login} />
-                    <Route path="/home" component={Home} />
-                    <Route exact path="/" component={Home} />
-                    <Redirect to={'/home'} />
-                </Switch>
-            </BrowserRouter>
+            <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>
         </Fragment>
     )
 }

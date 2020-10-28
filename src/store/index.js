@@ -3,10 +3,10 @@
  * @Author       : liulib
  * @Date         : 2020-10-26 11:03:25
  * @LastEditors  : liulib
- * @LastEditTime : 2020-10-26 15:01:58
+ * @LastEditTime : 2020-10-28 16:00:00
  */
 import { createStore, applyMiddleware, compose } from 'redux'
-import reducer from './reducer'
+import rootReducer from './rootReducer'
 import thunk from 'redux-thunk'
 
 // 这里让项目支持浏览器插件Redux DevTools
@@ -17,6 +17,6 @@ const composeEnhancers =
 
 const enhancer = composeEnhancers(applyMiddleware(thunk))
 
-const store = createStore(reducer, enhancer)
+const store = createStore(rootReducer, enhancer)
 
 export default store

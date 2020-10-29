@@ -8,6 +8,6 @@
 import axios from './http'
 import { BASEURL } from '@/config/base-config'
 
-export const login = data => {
+export const reqLogin = data => {
     return axios.post(`${BASEURL.REQUEST_URL}user/login`, data)
 }

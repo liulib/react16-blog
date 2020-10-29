@@ -3,14 +3,17 @@
  * @Author       : liulib
  * @Date         : 2020-10-28 16:02:16
  * @LastEditors  : liulib
- * @LastEditTime : 2020-10-28 16:05:42
+ * @LastEditTime : 2020-10-29 16:32:59
  */
 import * as constants from '../constants'
 
 // 初始默认的state
 const defaultState = {
     userInfo: {
-        username: 'liulib'
+        username: '',
+        userId: 0,
+        role: 0,
+        token: ''
     }
 }
 

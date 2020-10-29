@@ -3,9 +3,10 @@
  * @Author       : liulib
  * @Date         : 2020-10-26 11:03:10
  * @LastEditors  : liulib
- * @LastEditTime : 2020-10-28 16:25:58
+ * @LastEditTime : 2020-10-29 15:33:49
  */
 import * as constants from '../constants'
+import { reqLogin } from '../../api/user'
 
 export const setUserInfo = data => ({
     type: constants.SET_USER_INFO,
@@ -13,5 +14,10 @@ export const setUserInfo = data => ({
 })
 
 export const login = data => {
-    return () => {}
+    return async dispatch => {
+        const res = await reqLogin(data)
+        const action = setUserInfo(res.data.data)
+        dispatch(action)
+        console.log(res.data.data)
+    }
 }

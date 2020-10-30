@@ -1,8 +1,7 @@
 import React from 'react'
 import { Button } from 'antd'
-import LoginModal from './loginModal'
 import { connect } from 'react-redux'
-import { login } from '../../../store/user/actions'
+import { updateSignVisible } from '../../../store/common/actions'
 
 class UserInfo extends React.Component {
     render() {
@@ -13,15 +12,22 @@ class UserInfo extends React.Component {
                     type="primary"
                     size="small"
                     style={{ marginRight: 20 }}
-                    onClick={this.props.handleLogin}
+                    onClick={() => {
+                        this.props.showModal('login')
+                    }}
                 >
                     登录
                 </Button>
-                <Button ghost type="danger" size="small">
+                <Button
+                    ghost
+                    type="danger"
+                    size="small"
+                    onClick={() => {
+                        this.props.showModal('register')
+                    }}
+                >
                     注册
                 </Button>
-                <p>{this.props.userInfo.username}</p>
-                <LoginModal></LoginModal>
             </>
         )
     }
@@ -35,8 +41,9 @@ const mapState = state => {
 
 const mapDispatch = dispatch => {
     return {
-        handleLogin() {
-            dispatch(login({ username: 'liulib1', password: '123456' }))
+        showModal(type) {
+            console.log('object')
+            dispatch(updateSignVisible({ visible: true, type: type }))
         }
     }
 }
